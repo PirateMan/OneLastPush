@@ -1,85 +1,64 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
-//#include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
 #include "OneLastPushPlayerController.generated.h"
 
-class UNiagaraSystem;
 class UInputMappingContext;
-class UInputAction;
-class UPathFollowingComponent;
-
-DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
+class AOneLastPushCharacter;
 
 /**
- *  Player controller for a top-down perspective game.
- *  Implements point and click based controls
+ *  Simple Player Controller for a Twin Stick Shooter game
+ *  Manages input mapping contexts
+ *  Respawns the pawn if it is destroyed
  */
-UCLASS(abstract)
+UCLASS(abstract, Config = "Game")
 class AOneLastPushPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
 protected:
 
-	/** Component used for moving along a NavMesh path. */
-	UPROPERTY(VisibleDefaultsOnly, Category = AI)
-	TObjectPtr<UPathFollowingComponent> PathFollowingComponent;
+	/** Input Mapping Contexts */
+	UPROPERTY(EditAnywhere, Category = "Input|Input Mappings")
+	TArray<UInputMappingContext*> DefaultMappingContexts;
 
-	/** Time Threshold to know if it was a short press */
-	UPROPERTY(EditAnywhere, Category="Input")
-	float ShortPressThreshold;
+	/** Input Mapping Contexts */
+	UPROPERTY(EditAnywhere, Category = "Input|Input Mappings")
+	TArray<UInputMappingContext*> MobileExcludedMappingContexts;
 
-	/** FX Class that we will spawn when clicking */
-	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UNiagaraSystem> FXCursor;
+	/** Mobile controls widget to spawn */
+	UPROPERTY(EditAnywhere, Category = "Input|Touch Controls")
+	TSubclassOf<UUserWidget> MobileControlsWidgetClass;
 
-	/** MappingContext */
-	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UInputMappingContext> DefaultMappingContext;
-	
-	/** Jump Input Action */
-	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UInputAction> SetDestinationClickAction;
+	/** Pointer to the mobile controls widget */
+	UPROPERTY()
+	TObjectPtr<UUserWidget> MobileControlsWidget;
 
-	/** Jump Input Action */
-	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UInputAction> SetDestinationTouchAction;
+	/** If true, the player will use UMG touch controls even if not playing on mobile platforms */
+	UPROPERTY(EditAnywhere, Config, Category = "Input|Touch Controls")
+	bool bForceTouchControls = false;
 
-	/** True if the controlled character should navigate to the mouse cursor. */
-	uint32 bMoveToMouseCursor : 1;
-
-	/** Set to true if we're using touch input */
-	uint32 bIsTouch : 1;
-
-	/** Saved location of the character movement destination */
-	FVector CachedDestination;
-
-	/** Time that the click input has been pressed */
-	float FollowTime = 0.0f;
-
-public:
-
-	/** Constructor */
-	AOneLastPushPlayerController();
+	/** Character class to respawn when the possessed pawn is destroyed */
+	UPROPERTY(EditAnywhere, Category = "Respawn")
+	TSubclassOf<AOneLastPushCharacter> CharacterClass;
 
 protected:
 
+	/** Gameplay initialization */
+	virtual void BeginPlay() override;
+
 	/** Initialize input bindings */
 	virtual void SetupInputComponent() override;
-	
-	/** Input handlers */
-	void OnInputStarted();
-	void OnSetDestinationTriggered();
-	void OnSetDestinationReleased();
-	void OnTouchTriggered();
-	void OnTouchReleased();
 
-	/** Helper function to get the move destination */
-	void UpdateCachedDestination();
+	/** Pawn initialization */
+	virtual void OnPossess(APawn* InPawn) override;
+
+	/** Called if the possessed pawn is destroyed */
+	UFUNCTION()
+	void OnPawnDestroyed(AActor* DestroyedActor);
+
+	/** Returns true if the player should use UMG touch controls */
+	bool ShouldUseTouchControls() const;
 };
-
-
