@@ -39,6 +39,18 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* MoveAction;
 
+	/** Jump input action */
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* JumpAction;
+
+	/** Crouch input action */
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* CrouchAction;
+
+	/** Sprint input action */
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* SprintAction;
+
 	/** Gamepad aim input action */
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* StickAimAction;
@@ -178,6 +190,15 @@ public:
 	/** Handles move inputs from both input actions and touch interface */
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void DoMove(float AxisX, float AxisY);
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	void DoJump();
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	void DoCrouch();
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	void DoSprint();
 
 	/** Handles aim inputs from both input actions and touch interface */
 	UFUNCTION(BlueprintCallable, Category = "Input")

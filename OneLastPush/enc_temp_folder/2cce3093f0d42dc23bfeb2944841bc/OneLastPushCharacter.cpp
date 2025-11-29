@@ -114,9 +114,9 @@ void AOneLastPushCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	{
 		//movement
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Move);
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Jump);
-		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Crouch);
-		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Sprint);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Jump);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Crouch);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Sprint);
 
 		//aiming and shooting
 		EnhancedInputComponent->BindAction(StickAimAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::StickAim);
