@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+//Copyright PeggyDogGames
 
 #include "OneLastPushCharacter.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -116,12 +116,19 @@ void AOneLastPushCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	// set up the enhanced input action bindings
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
-
+		//movement
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Move);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Jump);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Crouch);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Sprint);
+
+		//aiming and shooting
 		EnhancedInputComponent->BindAction(StickAimAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::StickAim);
 		EnhancedInputComponent->BindAction(MouseAimAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::MouseAim);
-		EnhancedInputComponent->BindAction(DashAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Dash);
 		EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Shoot);
+
+		//abilities and items
+		EnhancedInputComponent->BindAction(DashAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Dash);
 		EnhancedInputComponent->BindAction(AoEAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::AoEAttack);
 
 	}
@@ -135,6 +142,25 @@ void AOneLastPushCharacter::Move(const FInputActionValue& Value)
 
 	// route the input
 	DoMove(InputVector.X, InputVector.Y);
+}
+
+void AOneLastPushCharacter::Jump(const FInputActionValue& Value)
+{
+	// make the character jump
+	ACharacter::Jump();
+}
+
+void AOneLastPushCharacter::Crouch(const FInputActionValue& Value)
+{
+	// make the character crouch
+	ACharacter::Crouch();
+}
+
+void AOneLastPushCharacter::Sprint(const FInputActionValue& Value)
+{
+	// make the character sprint
+	ACharacter::UnCrouch();
+	//TODO: implement sprinting speed boost
 }
 
 void AOneLastPushCharacter::StickAim(const FInputActionValue& Value)

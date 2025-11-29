@@ -1,5 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
+//Copyright PeggyDogGames
 
 #include "OneLastPushPlayerController.h"
 #include "EnhancedInputSubsystems.h"

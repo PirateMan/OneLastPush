@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+//Copyright PeggyDogGames
 
 
 #include "OneLastPushGameMode.h"
@@ -10,7 +10,7 @@
 void AOneLastPushGameMode::BeginPlay()
 {
 	// create the UI widget if it hasn't already
-	CreateUI();
+	//CreateUI();
 }
 
 void AOneLastPushGameMode::EndPlay(EEndPlayReason::Type EndPlayReason)
@@ -26,7 +26,7 @@ void AOneLastPushGameMode::ItemUsed(int32 Value)
 	// ensure the UI widget is available
 	if (!UIWidget)
 	{
-		CreateUI();
+		//CreateUI();
 	}
 
 	// update the UI
@@ -45,16 +45,16 @@ void AOneLastPushGameMode::ScoreUpdate(int32 Value)
 	ComboUpdate();
 }
 
-void AOneLastPushGameMode::CreateUI()
-{
-	// avoid creating the UI multiple times
-	if (UIWidget)
-		return;
-
-	// create the UI widget and add it to the viewport
-	UIWidget = CreateWidget<UTwinStickUI>(UGameplayStatics::GetPlayerController(GetWorld(), 0), UIWidgetClass);
-	UIWidget->AddToViewport(0);
-}
+//void AOneLastPushGameMode::CreateUI()
+//{
+//	// avoid creating the UI multiple times
+//	if (UIWidget)
+//		return;
+//
+//	// create the UI widget and add it to the viewport
+//	UIWidget = CreateWidget<UTwinStickUI>(UGameplayStatics::GetPlayerController(GetWorld(), 0), UIWidgetClass);
+//	UIWidget->AddToViewport(0);
+//}
 
 void AOneLastPushGameMode::ComboUpdate()
 {

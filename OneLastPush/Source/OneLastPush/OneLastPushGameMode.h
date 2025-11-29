@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+//Copyright PeggyDogGames
 
 #pragma once
 
@@ -77,8 +77,8 @@ public:
 
 protected:
 
-	/** Creates the UI widget if it hasn't been created already */
-	void CreateUI();
+	///** Creates the UI widget if it hasn't been created already */
+	//void CreateUI();
 
 	/** Updates the combo multiplier */
 	void ComboUpdate();

@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+//Copyright PeggyDogGames
 
 #pragma once
 
@@ -148,6 +148,15 @@ protected:
 
 	/** Handles movement inputs */
 	void Move(const FInputActionValue& Value);
+
+	/** Handles jump inputs */
+	void Jump(const FInputActionValue& Value);
+
+	/** Handles crouch inputs */
+	void Crouch(const FInputActionValue& Value);
+
+	/** Handles sprint inputs */
+	void Sprint(const FInputActionValue& Value);
 
 	/** Handles joypad aim */
 	void StickAim(const FInputActionValue& Value);

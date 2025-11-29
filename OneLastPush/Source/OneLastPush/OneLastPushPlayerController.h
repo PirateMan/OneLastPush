@@ -1,3 +1,4 @@
+//Copyright PeggyDogGames
 
 #pragma once
 
