@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\Projects\\Games\\OneLastPush\\Source\\OneLastPush\\OneLastPush.Build.cs",
+		"D:\\Projects\\Games\\OneLastPush\\Source\\OneLastPush.Target.cs",
+		"D:\\Projects\\Games\\OneLastPush\\Source\\OneLastPushEditor.Target.cs"
+	],
+	"EngineVersion": "5.7.1"
+}

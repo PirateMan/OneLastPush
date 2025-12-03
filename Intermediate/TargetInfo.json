@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "OneLastPush",
+			"Path": "..\\Source\\OneLastPush.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "OneLastPushEditor",
+			"Path": "..\\Source\\OneLastPushEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

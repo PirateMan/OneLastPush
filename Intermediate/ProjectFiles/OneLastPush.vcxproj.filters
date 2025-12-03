@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\OneLastPush.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\OneLastPush.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\OneLastPushEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Source\OneLastPush">
+      <UniqueIdentifier>{967EF42D-27C0-3D52-A9F2-735ECE078FFB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\OneLastPush\OneLastPush.Build.cs">
+      <Filter>Source\OneLastPush</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\OneLastPush\OneLastPush.cpp">
+      <Filter>Source\OneLastPush</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\OneLastPush.h">
+      <Filter>Source\OneLastPush</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\OneLastPushCharacter.cpp">
+      <Filter>Source\OneLastPush</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\OneLastPushCharacter.h">
+      <Filter>Source\OneLastPush</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\OneLastPushGameMode.cpp">
+      <Filter>Source\OneLastPush</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\OneLastPushGameMode.h">
+      <Filter>Source\OneLastPush</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\OneLastPushPlayerController.cpp">
+      <Filter>Source\OneLastPush</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\OneLastPushPlayerController.h">
+      <Filter>Source\OneLastPush</Filter>
+    </ClInclude>
+    <Filter Include="Source\OneLastPush\Variant_Strategy">
+      <UniqueIdentifier>{0FF1AA02-2428-3029-BEE3-7B77EDED56A0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_Strategy\StrategyGameMode.cpp">
+      <Filter>Source\OneLastPush\Variant_Strategy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_Strategy\StrategyGameMode.h">
+      <Filter>Source\OneLastPush\Variant_Strategy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_Strategy\StrategyPawn.cpp">
+      <Filter>Source\OneLastPush\Variant_Strategy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_Strategy\StrategyPawn.h">
+      <Filter>Source\OneLastPush\Variant_Strategy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_Strategy\StrategyPlayerController.cpp">
+      <Filter>Source\OneLastPush\Variant_Strategy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_Strategy\StrategyPlayerController.h">
+      <Filter>Source\OneLastPush\Variant_Strategy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_Strategy\StrategyUnit.cpp">
+      <Filter>Source\OneLastPush\Variant_Strategy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_Strategy\StrategyUnit.h">
+      <Filter>Source\OneLastPush\Variant_Strategy</Filter>
+    </ClInclude>
+    <Filter Include="Source\OneLastPush\Variant_Strategy\UI">
+      <UniqueIdentifier>{2AD31A62-2A3D-359A-86E1-DE81E72524DC}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_Strategy\UI\StrategyHUD.cpp">
+      <Filter>Source\OneLastPush\Variant_Strategy\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_Strategy\UI\StrategyHUD.h">
+      <Filter>Source\OneLastPush\Variant_Strategy\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_Strategy\UI\StrategyUI.cpp">
+      <Filter>Source\OneLastPush\Variant_Strategy\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_Strategy\UI\StrategyUI.h">
+      <Filter>Source\OneLastPush\Variant_Strategy\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\OneLastPush\Variant_TwinStick">
+      <UniqueIdentifier>{1371B5AB-5EDF-3891-A230-EDEC00010A78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\OneLastPush\Variant_TwinStick\AI">
+      <UniqueIdentifier>{625F9BD3-D6C0-3062-95A2-C8CBCB2C839E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickAIController.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickAIController.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickNPC.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickNPC.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickNPCDestruction.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickNPCDestruction.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickSpawner.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickSpawner.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickStateTreeUtility.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\AI\TwinStickStateTreeUtility.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\AI</Filter>
+    </ClInclude>
+    <Filter Include="Source\OneLastPush\Variant_TwinStick\Gameplay">
+      <UniqueIdentifier>{95F2390E-9786-3A3D-B935-021244CCE316}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\Gameplay\TwinStickAoEAttack.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\Gameplay\TwinStickAoEAttack.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\Gameplay\TwinStickPickup.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\Gameplay\TwinStickPickup.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\Gameplay\TwinStickProjectile.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\Gameplay</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\Gameplay\TwinStickProjectile.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\Gameplay</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\TwinStickCharacter.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\TwinStickCharacter.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\TwinStickGameMode.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\TwinStickGameMode.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\TwinStickPlayerController.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\TwinStickPlayerController.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick</Filter>
+    </ClInclude>
+    <Filter Include="Source\OneLastPush\Variant_TwinStick\UI">
+      <UniqueIdentifier>{C648B0A9-C5F6-3978-8FBA-D61A10419CDD}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OneLastPush\Variant_TwinStick\UI\TwinStickUI.cpp">
+      <Filter>Source\OneLastPush\Variant_TwinStick\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Variant_TwinStick\UI\TwinStickUI.h">
+      <Filter>Source\OneLastPush\Variant_TwinStick\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
