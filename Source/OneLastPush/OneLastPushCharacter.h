@@ -9,6 +9,7 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+class UInventoryComponent;
 struct FInputActionValue;
 class APlayerController;
 class UInputAction;
@@ -31,6 +32,10 @@ class AOneLastPushCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* Camera;
 
+	/** Player inventory component */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UInventoryComponent* InventoryComponent;
+
 protected:
 
 	/** Movement input action */
@@ -52,6 +57,14 @@ protected:
 	/** Shooting input action */
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* ShootAction;
+
+	/** Inventory input action */
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* OpenInventoryAction;
+
+	/** Interact input action */
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* InteractAction;
 
 	/** Trace channel to use for mouse aim */
 	UPROPERTY(EditAnywhere, Category = "Input")
@@ -124,6 +137,12 @@ protected:
 	/** Shoots projectiles */
 	void Shoot(const FInputActionValue& Value);
 
+	/** Open/close inventory */
+	void ToggleInventory(const FInputActionValue& Value);
+
+	/** Interact with nearby containers */
+	void Interact(const FInputActionValue& Value);
+
 public:
 
 	/** Handles move inputs from both input actions and touch interface */
@@ -141,6 +160,10 @@ public:
 	/** Handles shoot inputs from both input actions and touch interface */
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void DoShoot();
+
+	/** Get player inventory */
+	UFUNCTION(BlueprintPure, Category = "Inventory")
+	UInventoryComponent* GetInventory() const { return InventoryComponent; }
 
 protected:
 

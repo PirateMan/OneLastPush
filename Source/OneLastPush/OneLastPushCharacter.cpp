@@ -6,6 +6,10 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "EnhancedInputComponent.h"
 #include "InputAction.h"
+#include "Components/InventoryComponent.h"
+#include "Components/ContainerComponent.h"
+#include "Engine/CollisionProfile.h"
+#include "Engine/OverlapResult.h"
 #include "TwinStickGameMode.h"
 #include "TwinStickAoEAttack.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -34,6 +38,9 @@ AOneLastPushCharacter::AOneLastPushCharacter()
 	Camera->SetupAttachment(SpringArm);
 
 	Camera->SetFieldOfView(75.0f);
+
+	// create the inventory component
+	InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
 
 	// configure the character movement
 	GetCharacterMovement()->GravityScale = 1.5f;
@@ -114,6 +121,16 @@ void AOneLastPushCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 		EnhancedInputComponent->BindAction(MouseAimAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::MouseAim);
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Sprint);
 		EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Shoot);
+		
+		if (OpenInventoryAction)
+		{
+			EnhancedInputComponent->BindAction(OpenInventoryAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::ToggleInventory);
+		}
+
+		if (InteractAction)
+		{
+			EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Interact);
+		}
 	}
 
 }
@@ -158,6 +175,73 @@ void AOneLastPushCharacter::Shoot(const FInputActionValue& Value)
 {
 	// route the input
 	DoShoot();
+}
+
+void AOneLastPushCharacter::ToggleInventory(const FInputActionValue& Value)
+{
+	// Blueprint implementation can override this
+	// Default: just print that inventory was toggled
+}
+
+void AOneLastPushCharacter::Interact(const FInputActionValue& Value)
+{
+	// Find nearby containers and interact with them
+	if (!GetWorld())
+	{
+		return;
+	}
+
+	// Sphere trace to find containers
+	const FVector TraceStart = GetActorLocation();
+	const FVector TraceEnd = TraceStart;
+	const float InteractionRadius = 200.0f;
+
+	FCollisionShape SphereShape;
+	SphereShape.SetSphere(InteractionRadius);
+
+	FCollisionObjectQueryParams QueryParams;
+	QueryParams.AddObjectTypesToQuery(ECC_WorldDynamic);
+
+	FCollisionQueryParams TraceParams;
+	TraceParams.AddIgnoredActor(this);
+
+	TArray<FOverlapResult> OutOverlaps;
+
+	if (GetWorld()->OverlapMultiByObjectType(OutOverlaps, TraceStart, FQuat::Identity, QueryParams, SphereShape, TraceParams))
+	{
+		// Find the closest container
+		float ClosestDistance = InteractionRadius;
+		UContainerComponent* ClosestContainer = nullptr;
+
+		for (const FOverlapResult& Overlap : OutOverlaps)
+		{
+			if (AActor* HitActor = Overlap.GetActor())
+			{
+				if (UContainerComponent* Container = HitActor->FindComponentByClass<UContainerComponent>())
+				{
+					float Distance = FVector::Dist(GetActorLocation(), HitActor->GetActorLocation());
+					if (Distance < ClosestDistance)
+					{
+						ClosestDistance = Distance;
+						ClosestContainer = Container;
+					}
+				}
+			}
+		}
+
+		// Interact with the closest container
+		if (ClosestContainer)
+		{
+			if (ClosestContainer->IsOpen())
+			{
+				ClosestContainer->CloseContainer();
+			}
+			else
+			{
+				ClosestContainer->OpenContainer(this);
+			}
+		}
+	}
 }
 
 void AOneLastPushCharacter::DoMove(float AxisX, float AxisY)

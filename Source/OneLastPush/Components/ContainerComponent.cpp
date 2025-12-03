@@ -1,34 +1,108 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "ContainerComponent.h"
+#include "InventoryComponent.h"
+#include "../Inventory/InventoryItem.h"
+#include "../OneLastPushCharacter.h"
 
-#include "Components/ContainerComponent.h"
-
-// Sets default values for this component's properties
 UContainerComponent::UContainerComponent()
+	: GridWidth(8)
+	, GridHeight(4)
+	, bIsOpen(false)
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
+	PrimaryComponentTick.bCanEverTick = false;
 }
 
-
-// Called when the game starts
 void UContainerComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
+	// Create container inventory if not already created
+	if (!Inventory)
+	{
+		Inventory = NewObject<UInventoryComponent>(this);
+		if (Inventory)
+		{
+			Inventory->GridWidth = GridWidth;
+			Inventory->GridHeight = GridHeight;
+		}
+	}
 }
 
-
-// Called every frame
-void UContainerComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UContainerComponent::ToggleContainer()
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	if (bIsOpen)
+	{
+		CloseContainer();
+	}
+	else if (InteractingCharacter.IsValid())
+	{
+		OpenContainer(InteractingCharacter.Get());
+	}
+}
 
-	// ...
+void UContainerComponent::OpenContainer(AOneLastPushCharacter* Interactor)
+{
+	// Ensure inventory is initialized
+	if (!Inventory)
+	{
+		Inventory = NewObject<UInventoryComponent>(this);
+		if (Inventory)
+		{
+			Inventory->GridWidth = GridWidth;
+			Inventory->GridHeight = GridHeight;
+		}
+	}
+
+	if (!Inventory || bIsOpen)
+	{
+		return;
+	}
+
+	InteractingCharacter = Interactor;
+	bIsOpen = true;
+
+	// Delegates removed - Blueprint can bind to container state changes
+	// through IsOpen() getter if needed
+}
+
+void UContainerComponent::CloseContainer()
+{
+	if (!bIsOpen)
+	{
+		return;
+	}
+
+	bIsOpen = false;
+	// Delegates removed - Blueprint can bind to container state changes
+	// through IsOpen() getter if needed
+}
+
+bool UContainerComponent::AddItem(UInventoryItem* Item)
+{
+	if (!Inventory)
+	{
+		Inventory = NewObject<UInventoryComponent>(this);
+		if (Inventory)
+		{
+			Inventory->GridWidth = GridWidth;
+			Inventory->GridHeight = GridHeight;
+		}
+	}
+
+	if (!Inventory)
+	{
+		return false;
+	}
+
+	return Inventory->AddItem(Item);
+}
+
+void UContainerComponent::GetAllItems(TArray<UInventoryItem*>& OutItems) const
+{
+	if (Inventory)
+	{
+		Inventory->GetAllItems(OutItems);
+	}
 }
 

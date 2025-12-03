@@ -5,26 +5,30 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Blueprints/BP_GameMode.uasset",
-				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Blueprints/BP_PlayerController.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Blueprints/Core/BP_PlayerController.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Blueprints/Core/BP_GameMode.uasset",
 				"D:/Projects/Games/OneLastPush/Content/Variant_TwinStick/Blueprints/BP_TwinStickGameMode.uasset",
 				"D:/Projects/Games/OneLastPush/Content/Variant_TwinStick/Blueprints/BP_TwinStickPlayerController.uasset",
-				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Characters/BP_TwinStickCharacter.uasset",
-				"D:/Projects/Games/OneLastPush/Content/Variant_TwinStick/Blueprints/BP_TwinStickCharacter.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Characters/BP_PlayerCharacter.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_Sprint.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_Interact.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_MouseAim.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_Move.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_StickAim.uasset",
-				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_AimZoom.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_AimDownSights.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_OpenInventory.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/IMC_DefaultMap.uasset",
 				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_Shoot.uasset",
-				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Levels/Somme.umap"
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Levels/Somme.umap",
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Objects/Interactable/SM_ChamferCube.uasset",
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Objects/Interactable/BP_Container.uasset",
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Blueprints/BP_Item.uasset",
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/UI/WBP_Inventory.uasset",
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Blueprints/BP_GameMode.uasset",
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Blueprints/BP_PlayerController.uasset",
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Characters/BP_TwinStickCharacter.uasset",
+				"D:/Projects/Games/OneLastPush/Content/Variant_TwinStick/Blueprints/BP_TwinStickCharacter.uasset",
+				"D:/Projects/Games/OneLastPush/Content/OneLastPush/Inputs/Actions/IA_AimZoom.uasset"
 			]
 		}
 	]
