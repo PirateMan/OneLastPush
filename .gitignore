@@ -361,3 +361,37 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Unreal Engine 5 - project-specific ignores
+# Keep .uproject, Content/, Source/ and Config/ under version control
+
+# Common Unreal build and intermediate folders
+/Binaries/
+/Build/
+/DerivedDataCache/
+/Intermediate/
+/Saved/
+
+# Generated project files
+/Intermediate/ProjectFiles/
+/Intermediate/Build/
+
+# Packaging and cooked files
+*.pak
+*.sig
+*.uexp
+*.ubulk
+
+# Plugin staging/build outputs
+/Plugins/*/Binaries/
+/Plugins/*/Intermediate/
+
+# Editor and IDE settings
+.vscode/
+.idea/
+
+# Misc
+*.log
+CrashReports/
+
+# End Unreal Engine 5 additions

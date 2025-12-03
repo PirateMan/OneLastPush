@@ -48,17 +48,11 @@ AOneLastPushCharacter::AOneLastPushCharacter()
 void AOneLastPushCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// update the items count
-	UpdateItems();
 }
 
 void AOneLastPushCharacter::EndPlay(EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
-
-	/** Clear the autofire timer */
-	GetWorld()->GetTimerManager().ClearTimer(AutoFireTimer);
 }
 
 void AOneLastPushCharacter::NotifyControllerChanged()
@@ -91,8 +85,6 @@ void AOneLastPushCharacter::Tick(float DeltaTime)
 			// save the aim angle
 			AimAngle = AimRot.Yaw;
 
-
-
 			// update the yaw, reuse the pitch and roll
 			SetActorRotation(FRotator(OldRotation.Pitch, AimAngle, OldRotation.Roll));
 
@@ -120,10 +112,8 @@ void AOneLastPushCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Move);
 		EnhancedInputComponent->BindAction(StickAimAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::StickAim);
 		EnhancedInputComponent->BindAction(MouseAimAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::MouseAim);
-		EnhancedInputComponent->BindAction(DashAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Dash);
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Sprint);
 		EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::Shoot);
-		EnhancedInputComponent->BindAction(AoEAction, ETriggerEvent::Triggered, this, &AOneLastPushCharacter::AoEAttack);
-
 	}
 
 }
@@ -158,22 +148,16 @@ void AOneLastPushCharacter::MouseAim(const FInputActionValue& Value)
 	}
 }
 
-void AOneLastPushCharacter::Dash(const FInputActionValue& Value)
+void AOneLastPushCharacter::Sprint(const FInputActionValue& Value)
 {
 	// route the input
-	DoDash();
+	DoSprint();
 }
 
 void AOneLastPushCharacter::Shoot(const FInputActionValue& Value)
 {
 	// route the input
 	DoShoot();
-}
-
-void AOneLastPushCharacter::AoEAttack(const FInputActionValue& Value)
-{
-	// route the input
-	DoAoEAttack();
 }
 
 void AOneLastPushCharacter::DoMove(float AxisX, float AxisY)
@@ -221,85 +205,14 @@ void AOneLastPushCharacter::DoAim(float AxisX, float AxisY)
 	}
 }
 
-void AOneLastPushCharacter::DoDash()
-{
-	// calculate the launch impulse vector based on the last move input
-	FVector LaunchDir = FVector::ZeroVector;
-
-	LaunchDir.X = FMath::Clamp(LastMoveInput.X, -1.0f, 1.0f);
-	LaunchDir.Y = FMath::Clamp(LastMoveInput.Y, -1.0f, 1.0f);
-
-	// launch the character in the chosen direction
-	LaunchCharacter(LaunchDir * DashImpulse, true, true);
-}
-
 void AOneLastPushCharacter::DoShoot()
 {
-	// get the actor transform
-	FTransform ProjectileTransform = GetActorTransform();
 
-	// apply the projectile spawn offset
-	FVector ProjectileLocation = ProjectileTransform.GetLocation() + ProjectileTransform.GetRotation().RotateVector(FVector::ForwardVector * ProjectileOffset);
-	ProjectileTransform.SetLocation(ProjectileLocation);
-
-	ATwinStickProjectile* Projectile = GetWorld()->SpawnActor<ATwinStickProjectile>(ProjectileClass, ProjectileTransform);
 }
 
-void AOneLastPushCharacter::DoAoEAttack()
+void AOneLastPushCharacter::DoSprint()
 {
-	// do we have enough items to do an AoE attack?
-	if (Items > 0)
-	{
-		// get the game time
-		const float GameTime = GetWorld()->GetTimeSeconds();
 
-		// are we off AoE cooldown?
-		if (GameTime - LastAoETime > AoECooldownTime)
-		{
-			// save the new AoE time
-			LastAoETime = GameTime;
-
-			// spawn the AoE
-			ATwinStickAoEAttack* AoE = GetWorld()->SpawnActor<ATwinStickAoEAttack>(AoEAttackClass, GetActorTransform());
-
-			// decrease the number of items
-			--Items;
-
-			// update the items count
-			UpdateItems();
-		}
-	}
-}
-
-void AOneLastPushCharacter::HandleDamage(float Damage, const FVector& DamageDirection)
-{
-	// calculate the knockback vector
-	FVector LaunchVector = DamageDirection;
-	LaunchVector.Z = 0.0f;
-
-	// apply knockback to the character
-	LaunchCharacter(LaunchVector * KnockbackStrength, true, true);
-
-	// pass control to BP
-	BP_Damaged();
-}
-
-void AOneLastPushCharacter::AddPickup()
-{
-	// increase the item count
-	++Items;
-
-	// update the items counter
-	UpdateItems();
-}
-
-void AOneLastPushCharacter::UpdateItems()
-{
-	// update the game mode
-	if (ATwinStickGameMode* GM = Cast<ATwinStickGameMode>(GetWorld()->GetAuthGameMode()))
-	{
-		GM->ItemUsed(Items);
-	}
 }
 
 void AOneLastPushCharacter::ResetAutoFire()

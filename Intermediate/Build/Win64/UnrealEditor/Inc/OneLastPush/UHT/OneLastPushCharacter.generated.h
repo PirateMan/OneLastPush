@@ -18,14 +18,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AOneLastPushCharacter ****************************************************
 #define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execDoAoEAttack); \
 	DECLARE_FUNCTION(execDoShoot); \
-	DECLARE_FUNCTION(execDoDash); \
+	DECLARE_FUNCTION(execDoSprint); \
 	DECLARE_FUNCTION(execDoAim); \
 	DECLARE_FUNCTION(execDoMove);
 
 
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h_24_CALLBACK_WRAPPERS
 struct Z_Construct_UClass_AOneLastPushCharacter_Statics;
 ONELASTPUSH_API UClass* Z_Construct_UClass_AOneLastPushCharacter_NoRegister();
 
@@ -41,14 +39,12 @@ public: \
 
 
 #define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h_24_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AOneLastPushCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AOneLastPushCharacter(AOneLastPushCharacter&&) = delete; \
 	AOneLastPushCharacter(const AOneLastPushCharacter&) = delete; \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AOneLastPushCharacter); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AOneLastPushCharacter); \
-	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AOneLastPushCharacter) \
+	DEFINE_ABSTRACT_DEFAULT_CONSTRUCTOR_CALL(AOneLastPushCharacter) \
 	NO_API virtual ~AOneLastPushCharacter();
 
 
@@ -57,7 +53,6 @@ public: \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h_24_CALLBACK_WRAPPERS \
 	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h_24_INCLASS_NO_PURE_DECLS \
 	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h_24_ENHANCED_CONSTRUCTORS \
 private: \

@@ -6,10 +6,11 @@
 #include "GameFramework/GameModeBase.h"
 #include "OneLastPushGameMode.generated.h"
 
+class UTwinStickUI;
+
 /**
- *  Simple Game Mode for a top-down perspective game
- *  Sets the default gameplay framework classes
- *  Check the Blueprint derived class for the set values
+ *  Simple Game Mode for a Twin Stick Shooter game.
+ *  Manages the score and UI
  */
 UCLASS(abstract)
 class AOneLastPushGameMode : public AGameModeBase
@@ -18,9 +19,10 @@ class AOneLastPushGameMode : public AGameModeBase
 
 public:
 
-	/** Constructor */
-	AOneLastPushGameMode();
+	/** Gameplay initialization */
+	virtual void BeginPlay() override;
+
+	/** Cleanup */
+	virtual void EndPlay(EEndPlayReason::Type EndPlayReason) override;
 };
-
-
 

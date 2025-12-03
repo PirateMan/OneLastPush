@@ -15,12 +15,17 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 
 // ********** Begin Class AOneLastPushPlayerController *********************************************
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnPawnDestroyed);
+
+
 struct Z_Construct_UClass_AOneLastPushPlayerController_Statics;
 ONELASTPUSH_API UClass* Z_Construct_UClass_AOneLastPushPlayerController_NoRegister();
 
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_24_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAOneLastPushPlayerController(); \
 	friend struct ::Z_Construct_UClass_AOneLastPushPlayerController_Statics; \
@@ -31,22 +36,25 @@ public: \
 	DECLARE_SERIALIZER(AOneLastPushPlayerController)
 
 
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_24_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_20_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API AOneLastPushPlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AOneLastPushPlayerController(AOneLastPushPlayerController&&) = delete; \
 	AOneLastPushPlayerController(const AOneLastPushPlayerController&) = delete; \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AOneLastPushPlayerController); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AOneLastPushPlayerController); \
-	DEFINE_ABSTRACT_DEFAULT_CONSTRUCTOR_CALL(AOneLastPushPlayerController) \
+	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AOneLastPushPlayerController) \
 	NO_API virtual ~AOneLastPushPlayerController();
 
 
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_21_PROLOG
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_24_GENERATED_BODY \
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_17_PROLOG
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_20_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_24_INCLASS_NO_PURE_DECLS \
-	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_24_ENHANCED_CONSTRUCTORS \
+	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_20_INCLASS_NO_PURE_DECLS \
+	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushPlayerController_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

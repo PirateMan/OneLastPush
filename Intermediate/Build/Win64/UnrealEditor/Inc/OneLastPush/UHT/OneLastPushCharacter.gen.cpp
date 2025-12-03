@@ -12,7 +12,6 @@ static_assert(!UE_WITH_CONSTINIT_UOBJECT, "This generated code can only be compi
 void EmptyLinkFunctionForGeneratedCodeOneLastPushCharacter() {}
 
 // ********** Begin Cross Module References ********************************************************
-COREUOBJECT_API UClass* Z_Construct_UClass_UClass_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -20,52 +19,8 @@ ENGINE_API UEnum* Z_Construct_UEnum_Engine_ETraceTypeQuery();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 ONELASTPUSH_API UClass* Z_Construct_UClass_AOneLastPushCharacter();
 ONELASTPUSH_API UClass* Z_Construct_UClass_AOneLastPushCharacter_NoRegister();
-ONELASTPUSH_API UClass* Z_Construct_UClass_ATwinStickAoEAttack_NoRegister();
-ONELASTPUSH_API UClass* Z_Construct_UClass_ATwinStickProjectile_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OneLastPush();
 // ********** End Cross Module References **********************************************************
-
-// ********** Begin Class AOneLastPushCharacter Function BP_Damaged ********************************
-static FName NAME_AOneLastPushCharacter_BP_Damaged = FName(TEXT("BP_Damaged"));
-void AOneLastPushCharacter::BP_Damaged()
-{
-	UFunction* Func = FindFunctionChecked(NAME_AOneLastPushCharacter_BP_Damaged);
-	ProcessEvent(Func,NULL);
-}
-struct Z_Construct_UFunction_AOneLastPushCharacter_BP_Damaged_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Damage" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Allows Blueprint code to react to damage */" },
-#endif
-		{ "DisplayName", "Damaged" },
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Allows Blueprint code to react to damage" },
-#endif
-	};
-#endif // WITH_METADATA
-
-// ********** Begin Function BP_Damaged constinit property declarations ****************************
-// ********** End Function BP_Damaged constinit property declarations ******************************
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AOneLastPushCharacter_BP_Damaged_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AOneLastPushCharacter, nullptr, "BP_Damaged", 	nullptr, 
-	0, 
-0,
-RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AOneLastPushCharacter_BP_Damaged_Statics::Function_MetaDataParams), Z_Construct_UFunction_AOneLastPushCharacter_BP_Damaged_Statics::Function_MetaDataParams)},  };
-UFunction* Z_Construct_UFunction_AOneLastPushCharacter_BP_Damaged()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AOneLastPushCharacter_BP_Damaged_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-// ********** End Class AOneLastPushCharacter Function BP_Damaged **********************************
 
 // ********** Begin Class AOneLastPushCharacter Function DoAim *************************************
 struct Z_Construct_UFunction_AOneLastPushCharacter_DoAim_Statics
@@ -129,90 +84,6 @@ DEFINE_FUNCTION(AOneLastPushCharacter::execDoAim)
 	P_NATIVE_END;
 }
 // ********** End Class AOneLastPushCharacter Function DoAim ***************************************
-
-// ********** Begin Class AOneLastPushCharacter Function DoAoEAttack *******************************
-struct Z_Construct_UFunction_AOneLastPushCharacter_DoAoEAttack_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Input" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Handles aoe attack inputs from both input actions and touch interface */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Handles aoe attack inputs from both input actions and touch interface" },
-#endif
-	};
-#endif // WITH_METADATA
-
-// ********** Begin Function DoAoEAttack constinit property declarations ***************************
-// ********** End Function DoAoEAttack constinit property declarations *****************************
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AOneLastPushCharacter_DoAoEAttack_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AOneLastPushCharacter, nullptr, "DoAoEAttack", 	nullptr, 
-	0, 
-0,
-RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AOneLastPushCharacter_DoAoEAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_AOneLastPushCharacter_DoAoEAttack_Statics::Function_MetaDataParams)},  };
-UFunction* Z_Construct_UFunction_AOneLastPushCharacter_DoAoEAttack()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AOneLastPushCharacter_DoAoEAttack_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AOneLastPushCharacter::execDoAoEAttack)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->DoAoEAttack();
-	P_NATIVE_END;
-}
-// ********** End Class AOneLastPushCharacter Function DoAoEAttack *********************************
-
-// ********** Begin Class AOneLastPushCharacter Function DoDash ************************************
-struct Z_Construct_UFunction_AOneLastPushCharacter_DoDash_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Input" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Handles dash inputs from both input actions and touch interface */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Handles dash inputs from both input actions and touch interface" },
-#endif
-	};
-#endif // WITH_METADATA
-
-// ********** Begin Function DoDash constinit property declarations ********************************
-// ********** End Function DoDash constinit property declarations **********************************
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AOneLastPushCharacter_DoDash_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AOneLastPushCharacter, nullptr, "DoDash", 	nullptr, 
-	0, 
-0,
-RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AOneLastPushCharacter_DoDash_Statics::Function_MetaDataParams), Z_Construct_UFunction_AOneLastPushCharacter_DoDash_Statics::Function_MetaDataParams)},  };
-UFunction* Z_Construct_UFunction_AOneLastPushCharacter_DoDash()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AOneLastPushCharacter_DoDash_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AOneLastPushCharacter::execDoDash)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->DoDash();
-	P_NATIVE_END;
-}
-// ********** End Class AOneLastPushCharacter Function DoDash **************************************
 
 // ********** Begin Class AOneLastPushCharacter Function DoMove ************************************
 struct Z_Construct_UFunction_AOneLastPushCharacter_DoMove_Statics
@@ -319,6 +190,48 @@ DEFINE_FUNCTION(AOneLastPushCharacter::execDoShoot)
 }
 // ********** End Class AOneLastPushCharacter Function DoShoot *************************************
 
+// ********** Begin Class AOneLastPushCharacter Function DoSprint **********************************
+struct Z_Construct_UFunction_AOneLastPushCharacter_DoSprint_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Handles sprint inputs from both input actions and touch interface */" },
+#endif
+		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Handles sprint inputs from both input actions and touch interface" },
+#endif
+	};
+#endif // WITH_METADATA
+
+// ********** Begin Function DoSprint constinit property declarations ******************************
+// ********** End Function DoSprint constinit property declarations ********************************
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AOneLastPushCharacter_DoSprint_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AOneLastPushCharacter, nullptr, "DoSprint", 	nullptr, 
+	0, 
+0,
+RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AOneLastPushCharacter_DoSprint_Statics::Function_MetaDataParams), Z_Construct_UFunction_AOneLastPushCharacter_DoSprint_Statics::Function_MetaDataParams)},  };
+UFunction* Z_Construct_UFunction_AOneLastPushCharacter_DoSprint()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AOneLastPushCharacter_DoSprint_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AOneLastPushCharacter::execDoSprint)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->DoSprint();
+	P_NATIVE_END;
+}
+// ********** End Class AOneLastPushCharacter Function DoSprint ************************************
+
 // ********** Begin Class AOneLastPushCharacter ****************************************************
 FClassRegistrationInfo Z_Registration_Info_UClass_AOneLastPushCharacter;
 UClass* AOneLastPushCharacter::GetPrivateStaticClass()
@@ -417,14 +330,14 @@ struct Z_Construct_UClass_AOneLastPushCharacter_Statics
 		{ "ToolTip", "Mouse aim input action" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashAction_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SprintAction_MetaData[] = {
 		{ "Category", "Input" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Dash input action */" },
+		{ "Comment", "/** Sprint input action */" },
 #endif
 		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Dash input action" },
+		{ "ToolTip", "Sprint input action" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ShootAction_MetaData[] = {
@@ -437,16 +350,6 @@ struct Z_Construct_UClass_AOneLastPushCharacter_Statics
 		{ "ToolTip", "Shooting input action" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AoEAction_MetaData[] = {
-		{ "Category", "Input" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** AoE attack input action */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "AoE attack input action" },
-#endif
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MouseAimTraceChannel_MetaData[] = {
 		{ "Category", "Input" },
 #if !UE_BUILD_SHIPPING
@@ -456,88 +359,6 @@ struct Z_Construct_UClass_AOneLastPushCharacter_Statics
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Trace channel to use for mouse aim" },
 #endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashImpulse_MetaData[] = {
-		{ "Category", "Dash" },
-		{ "ClampMax", "10000" },
-		{ "ClampMin", "0" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Impulse to apply to the character when dashing */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Impulse to apply to the character when dashing" },
-#endif
-		{ "Units", "cm/s" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileClass_MetaData[] = {
-		{ "Category", "Projectile" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Type of projectile to spawn when shooting */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Type of projectile to spawn when shooting" },
-#endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileOffset_MetaData[] = {
-		{ "Category", "Projectile" },
-		{ "ClampMax", "1000" },
-		{ "ClampMin", "0" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Distance ahead of the character that the projectile will be spawned at */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Distance ahead of the character that the projectile will be spawned at" },
-#endif
-		{ "Units", "cm" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AoEAttackClass_MetaData[] = {
-		{ "Category", "AoE" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Type of AoE attack actor to spawn */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Type of AoE attack actor to spawn" },
-#endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Items_MetaData[] = {
-		{ "Category", "AoE" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Number of starting AoE attack items */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Number of starting AoE attack items" },
-#endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_KnockbackStrength_MetaData[] = {
-		{ "Category", "Damage" },
-		{ "ClampMax", "1000" },
-		{ "ClampMin", "0" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Knockback impulse to apply to the character when they're damaged */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Knockback impulse to apply to the character when they're damaged" },
-#endif
-		{ "Units", "cm" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AoECooldownTime_MetaData[] = {
-		{ "Category", "AoE" },
-		{ "ClampMax", "10" },
-		{ "ClampMin", "0" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Time to disallow AoE attacks after one is performed */" },
-#endif
-		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Time to disallow AoE attacks after one is performed" },
-#endif
-		{ "Units", "s" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AimRotationInterpSpeed_MetaData[] = {
 		{ "Category", "Aim" },
@@ -573,36 +394,25 @@ struct Z_Construct_UClass_AOneLastPushCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_StickAimAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MouseAimAction;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_DashAction;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SprintAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ShootAction;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_AoEAction;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_MouseAimTraceChannel;
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_DashImpulse;
-	static const UECodeGen_Private::FClassPropertyParams NewProp_ProjectileClass;
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_ProjectileOffset;
-	static const UECodeGen_Private::FClassPropertyParams NewProp_AoEAttackClass;
-	static const UECodeGen_Private::FIntPropertyParams NewProp_Items;
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_KnockbackStrength;
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_AoECooldownTime;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AimRotationInterpSpeed;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AutoFireDelay;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 // ********** End Class AOneLastPushCharacter constinit property declarations **********************
 	static constexpr UE::CodeGen::FClassNativeFunction Funcs[] = {
 		{ .NameUTF8 = UTF8TEXT("DoAim"), .Pointer = &AOneLastPushCharacter::execDoAim },
-		{ .NameUTF8 = UTF8TEXT("DoAoEAttack"), .Pointer = &AOneLastPushCharacter::execDoAoEAttack },
-		{ .NameUTF8 = UTF8TEXT("DoDash"), .Pointer = &AOneLastPushCharacter::execDoDash },
 		{ .NameUTF8 = UTF8TEXT("DoMove"), .Pointer = &AOneLastPushCharacter::execDoMove },
 		{ .NameUTF8 = UTF8TEXT("DoShoot"), .Pointer = &AOneLastPushCharacter::execDoShoot },
+		{ .NameUTF8 = UTF8TEXT("DoSprint"), .Pointer = &AOneLastPushCharacter::execDoSprint },
 	};
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_AOneLastPushCharacter_BP_Damaged, "BP_Damaged" }, // 2274246299
 		{ &Z_Construct_UFunction_AOneLastPushCharacter_DoAim, "DoAim" }, // 1883290070
-		{ &Z_Construct_UFunction_AOneLastPushCharacter_DoAoEAttack, "DoAoEAttack" }, // 4260434768
-		{ &Z_Construct_UFunction_AOneLastPushCharacter_DoDash, "DoDash" }, // 2430375227
 		{ &Z_Construct_UFunction_AOneLastPushCharacter_DoMove, "DoMove" }, // 638371027
 		{ &Z_Construct_UFunction_AOneLastPushCharacter_DoShoot, "DoShoot" }, // 3564648385
+		{ &Z_Construct_UFunction_AOneLastPushCharacter_DoSprint, "DoSprint" }, // 2702810192
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -617,17 +427,9 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCh
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_MoveAction = { "MoveAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, MoveAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveAction_MetaData), NewProp_MoveAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_StickAimAction = { "StickAimAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, StickAimAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StickAimAction_MetaData), NewProp_StickAimAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_MouseAimAction = { "MouseAimAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, MouseAimAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MouseAimAction_MetaData), NewProp_MouseAimAction_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_DashAction = { "DashAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, DashAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DashAction_MetaData), NewProp_DashAction_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_SprintAction = { "SprintAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, SprintAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SprintAction_MetaData), NewProp_SprintAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_ShootAction = { "ShootAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, ShootAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ShootAction_MetaData), NewProp_ShootAction_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AoEAction = { "AoEAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, AoEAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AoEAction_MetaData), NewProp_AoEAction_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_MouseAimTraceChannel = { "MouseAimTraceChannel", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, MouseAimTraceChannel), Z_Construct_UEnum_Engine_ETraceTypeQuery, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MouseAimTraceChannel_MetaData), NewProp_MouseAimTraceChannel_MetaData) }; // 93441085
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_DashImpulse = { "DashImpulse", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, DashImpulse), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DashImpulse_MetaData), NewProp_DashImpulse_MetaData) };
-const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_ProjectileClass = { "ProjectileClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, ProjectileClass), Z_Construct_UClass_UClass_NoRegister, Z_Construct_UClass_ATwinStickProjectile_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ProjectileClass_MetaData), NewProp_ProjectileClass_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_ProjectileOffset = { "ProjectileOffset", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, ProjectileOffset), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ProjectileOffset_MetaData), NewProp_ProjectileOffset_MetaData) };
-const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AoEAttackClass = { "AoEAttackClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, AoEAttackClass), Z_Construct_UClass_UClass_NoRegister, Z_Construct_UClass_ATwinStickAoEAttack_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AoEAttackClass_MetaData), NewProp_AoEAttackClass_MetaData) };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_Items = { "Items", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, Items), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Items_MetaData), NewProp_Items_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_KnockbackStrength = { "KnockbackStrength", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, KnockbackStrength), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_KnockbackStrength_MetaData), NewProp_KnockbackStrength_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AoECooldownTime = { "AoECooldownTime", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, AoECooldownTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AoECooldownTime_MetaData), NewProp_AoECooldownTime_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AimRotationInterpSpeed = { "AimRotationInterpSpeed", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, AimRotationInterpSpeed), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AimRotationInterpSpeed_MetaData), NewProp_AimRotationInterpSpeed_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AutoFireDelay = { "AutoFireDelay", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, AutoFireDelay), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AutoFireDelay_MetaData), NewProp_AutoFireDelay_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AOneLastPushCharacter_Statics::PropPointers[] = {
@@ -636,17 +438,9 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AOneLastP
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_MoveAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_StickAimAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_MouseAimAction,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_DashAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_SprintAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_ShootAction,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AoEAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_MouseAimTraceChannel,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_DashImpulse,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_ProjectileClass,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_ProjectileOffset,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AoEAttackClass,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_Items,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_KnockbackStrength,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AoECooldownTime,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AimRotationInterpSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AutoFireDelay,
 };
@@ -685,7 +479,6 @@ UClass* Z_Construct_UClass_AOneLastPushCharacter()
 	}
 	return Z_Registration_Info_UClass_AOneLastPushCharacter.OuterSingleton;
 }
-AOneLastPushCharacter::AOneLastPushCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR_NS(, AOneLastPushCharacter);
 AOneLastPushCharacter::~AOneLastPushCharacter() {}
 // ********** End Class AOneLastPushCharacter ******************************************************
@@ -694,10 +487,10 @@ AOneLastPushCharacter::~AOneLastPushCharacter() {}
 struct Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AOneLastPushCharacter, AOneLastPushCharacter::StaticClass, TEXT("AOneLastPushCharacter"), &Z_Registration_Info_UClass_AOneLastPushCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AOneLastPushCharacter), 3415446422U) },
+		{ Z_Construct_UClass_AOneLastPushCharacter, AOneLastPushCharacter::StaticClass, TEXT("AOneLastPushCharacter"), &Z_Registration_Info_UClass_AOneLastPushCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AOneLastPushCharacter), 1118988899U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_591041606{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_2538665842{
 	TEXT("/Script/OneLastPush"),
 	Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_Statics::ClassInfo),
 	nullptr, 0,

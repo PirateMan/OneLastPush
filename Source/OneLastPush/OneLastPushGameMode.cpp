@@ -1,8 +1,16 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "OneLastPushGameMode.h"
+#include "Engine/World.h"
+#include "TimerManager.h"
+#include "Kismet/GameplayStatics.h"
 
-AOneLastPushGameMode::AOneLastPushGameMode()
+void AOneLastPushGameMode::BeginPlay()
 {
-	// stub
+
+}
+
+void AOneLastPushGameMode::EndPlay(EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
 }

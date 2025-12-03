@@ -53,14 +53,14 @@ struct Z_Construct_UClass_AOneLastPushGameMode_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n *  Simple Game Mode for a top-down perspective game\n *  Sets the default gameplay framework classes\n *  Check the Blueprint derived class for the set values\n */" },
+		{ "Comment", "/**\n *  Simple Game Mode for a Twin Stick Shooter game.\n *  Manages the score and UI\n */" },
 #endif
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
 		{ "IncludePath", "OneLastPushGameMode.h" },
 		{ "ModuleRelativePath", "OneLastPushGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Simple Game Mode for a top-down perspective game\nSets the default gameplay framework classes\nCheck the Blueprint derived class for the set values" },
+		{ "ToolTip", "Simple Game Mode for a Twin Stick Shooter game.\nManages the score and UI" },
 #endif
 	};
 #endif // WITH_METADATA
@@ -104,6 +104,7 @@ UClass* Z_Construct_UClass_AOneLastPushGameMode()
 	}
 	return Z_Registration_Info_UClass_AOneLastPushGameMode.OuterSingleton;
 }
+AOneLastPushGameMode::AOneLastPushGameMode(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR_NS(, AOneLastPushGameMode);
 AOneLastPushGameMode::~AOneLastPushGameMode() {}
 // ********** End Class AOneLastPushGameMode *******************************************************
@@ -112,10 +113,10 @@ AOneLastPushGameMode::~AOneLastPushGameMode() {}
 struct Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h__Script_OneLastPush_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AOneLastPushGameMode, AOneLastPushGameMode::StaticClass, TEXT("AOneLastPushGameMode"), &Z_Registration_Info_UClass_AOneLastPushGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AOneLastPushGameMode), 57500638U) },
+		{ Z_Construct_UClass_AOneLastPushGameMode, AOneLastPushGameMode::StaticClass, TEXT("AOneLastPushGameMode"), &Z_Registration_Info_UClass_AOneLastPushGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AOneLastPushGameMode), 3000386095U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h__Script_OneLastPush_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h__Script_OneLastPush_4275651270{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h__Script_OneLastPush_2877488368{
 	TEXT("/Script/OneLastPush"),
 	Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h__Script_OneLastPush_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h__Script_OneLastPush_Statics::ClassInfo),
 	nullptr, 0,

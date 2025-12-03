@@ -45,56 +45,21 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* MouseAimAction;
 
-	/** Dash input action */
+	/** Sprint input action */
 	UPROPERTY(EditAnywhere, Category = "Input")
-	UInputAction* DashAction;
+	UInputAction* SprintAction;
 
 	/** Shooting input action */
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* ShootAction;
 
-	/** AoE attack input action */
-	UPROPERTY(EditAnywhere, Category = "Input")
-	UInputAction* AoEAction;
-
 	/** Trace channel to use for mouse aim */
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TEnumAsByte<ETraceTypeQuery> MouseAimTraceChannel;
 
-	/** Impulse to apply to the character when dashing */
-	UPROPERTY(EditAnywhere, Category = "Dash", meta = (ClampMin = 0, ClampMax = 10000, Units = "cm/s"))
-	float DashImpulse = 2500.0f;
-
-	/** Type of projectile to spawn when shooting */
-	UPROPERTY(EditAnywhere, Category = "Projectile")
-	TSubclassOf<ATwinStickProjectile> ProjectileClass;
-
-	/** Distance ahead of the character that the projectile will be spawned at */
-	UPROPERTY(EditAnywhere, Category = "Projectile", meta = (ClampMin = 0, ClampMax = 1000, Units = "cm"))
-	float ProjectileOffset = 100.0f;
-
-	/** Type of AoE attack actor to spawn */
-	UPROPERTY(EditAnywhere, Category = "AoE")
-	TSubclassOf<ATwinStickAoEAttack> AoEAttackClass;
-
-	/** Number of starting AoE attack items */
-	UPROPERTY(EditAnywhere, Category = "AoE")
-	int32 Items = 1;
-
-	/** Knockback impulse to apply to the character when they're damaged */
-	UPROPERTY(EditAnywhere, Category = "Damage", meta = (ClampMin = 0, ClampMax = 1000, Units = "cm"))
-	float KnockbackStrength = 2500.0f;
-
-	/** Time to disallow AoE attacks after one is performed */
-	UPROPERTY(EditAnywhere, Category = "AoE", meta = (ClampMin = 0, ClampMax = 10, Units = "s"))
-	float AoECooldownTime = 1.0f;
-
 	/** Speed to blend between our current rotation and the target aim rotation when stick aiming */
 	UPROPERTY(EditAnywhere, Category = "Aim", meta = (ClampMin = 0, ClampMax = 100, Units = "s"))
 	float AimRotationInterpSpeed = 10.0f;
-
-	/** Game time of the last AoE attack */
-	float LastAoETime = 0.0f;
 
 	/** Aim Yaw Angle in degrees */
 	float AimAngle = 0.0f;
@@ -121,7 +86,7 @@ protected:
 public:
 
 	/** Constructor */
-	ATwinStickCharacter();
+	AOneLastPushCharacter();
 
 protected:
 
@@ -154,13 +119,10 @@ protected:
 	void MouseAim(const FInputActionValue& Value);
 
 	/** Performs a dash */
-	void Dash(const FInputActionValue& Value);
+	void Sprint(const FInputActionValue& Value);
 
 	/** Shoots projectiles */
 	void Shoot(const FInputActionValue& Value);
-
-	/** Performs an AoE Attack */
-	void AoEAttack(const FInputActionValue& Value);
 
 public:
 
@@ -172,38 +134,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void DoAim(float AxisX, float AxisY);
 
-	/** Handles dash inputs from both input actions and touch interface */
+	/** Handles sprint inputs from both input actions and touch interface */
 	UFUNCTION(BlueprintCallable, Category = "Input")
-	void DoDash();
+	void DoSprint();
 
 	/** Handles shoot inputs from both input actions and touch interface */
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void DoShoot();
 
-	/** Handles aoe attack inputs from both input actions and touch interface */
-	UFUNCTION(BlueprintCallable, Category = "Input")
-	void DoAoEAttack();
-
-public:
-
-	/** Applies collision impact to the player */
-	void HandleDamage(float Damage, const FVector& DamageDirection);
-
 protected:
-
-	/** Allows Blueprint code to react to damage */
-	UFUNCTION(BlueprintImplementableEvent, Category = "Damage", meta = (DisplayName = "Damaged"))
-	void BP_Damaged();
-
-public:
-
-	/** Gives the player a pickup item */
-	void AddPickup();
-
-protected:
-
-	/** Updates the items counter on the Game Mode */
-	void UpdateItems();
 
 	/** Resets stick the aim autofire flag after the autofire timer has expired */
 	void ResetAutoFire();

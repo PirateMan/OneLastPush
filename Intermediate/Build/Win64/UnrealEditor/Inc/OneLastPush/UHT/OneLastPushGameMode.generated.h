@@ -20,7 +20,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct Z_Construct_UClass_AOneLastPushGameMode_Statics;
 ONELASTPUSH_API UClass* Z_Construct_UClass_AOneLastPushGameMode_NoRegister();
 
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAOneLastPushGameMode(); \
 	friend struct ::Z_Construct_UClass_AOneLastPushGameMode_Statics; \
@@ -31,22 +31,24 @@ public: \
 	DECLARE_SERIALIZER(AOneLastPushGameMode)
 
 
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_18_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API AOneLastPushGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AOneLastPushGameMode(AOneLastPushGameMode&&) = delete; \
 	AOneLastPushGameMode(const AOneLastPushGameMode&) = delete; \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AOneLastPushGameMode); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AOneLastPushGameMode); \
-	DEFINE_ABSTRACT_DEFAULT_CONSTRUCTOR_CALL(AOneLastPushGameMode) \
+	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AOneLastPushGameMode) \
 	NO_API virtual ~AOneLastPushGameMode();
 
 
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_14_PROLOG
-#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_17_GENERATED_BODY \
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_15_PROLOG
+#define FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_17_INCLASS_NO_PURE_DECLS \
-	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_17_ENHANCED_CONSTRUCTORS \
+	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_18_INCLASS_NO_PURE_DECLS \
+	FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushGameMode_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
