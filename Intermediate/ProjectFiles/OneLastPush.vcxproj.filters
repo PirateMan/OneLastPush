@@ -56,6 +56,51 @@
     <ClInclude Include="..\..\Source\OneLastPush\Components\PlayerStatsComponent.h">
       <Filter>Source\OneLastPush\Components</Filter>
     </ClInclude>
+    <Filter Include="Source\OneLastPush\Inventory">
+      <UniqueIdentifier>{E72347B8-8D97-37BC-A3DE-A7B9AD75FB9C}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\OneLastPush\Inventory\CONFIGURATION_GUIDE.md">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </None>
+    <None Include="..\..\Source\OneLastPush\Inventory\IMPLEMENTATION_SUMMARY.txt">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryGrid.cpp">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryGrid.h">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryItem.cpp">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryItem.h">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryItemExample.cpp">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryItemExample.h">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryUIWidget.cpp">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryUIWidget.h">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\INVENTORY_QUICK_START.h">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\INVENTORY_SYSTEM_README.h">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\OneLastPush\Inventory\QUICK_REFERENCE.md">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </None>
+    <None Include="..\..\Source\OneLastPush\Inventory\README.md">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </None>
     <None Include="..\..\Source\OneLastPush\OneLastPush.Build.cs">
       <Filter>Source\OneLastPush</Filter>
     </None>

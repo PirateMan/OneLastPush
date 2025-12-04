@@ -272,6 +272,28 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClInclude Include="..\..\Source\OneLastPush\Components\PlayerStatsComponent.h"/>
+    <None Include="..\..\Source\OneLastPush\Inventory\CONFIGURATION_GUIDE.md"/>
+    <None Include="..\..\Source\OneLastPush\Inventory\IMPLEMENTATION_SUMMARY.txt"/>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryGrid.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryGrid.h"/>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryItem.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryItem.h"/>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryItemExample.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryItemExample.h"/>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryUIWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryUIWidget.h"/>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\INVENTORY_QUICK_START.h"/>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\INVENTORY_SYSTEM_README.h"/>
+    <None Include="..\..\Source\OneLastPush\Inventory\QUICK_REFERENCE.md"/>
+    <None Include="..\..\Source\OneLastPush\Inventory\README.md"/>
     <None Include="..\..\Source\OneLastPush\OneLastPush.Build.cs"/>
     <ClCompile Include="..\..\Source\OneLastPush\OneLastPush.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
