@@ -83,6 +83,12 @@
     <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventoryItemExample.h">
       <Filter>Source\OneLastPush\Inventory</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventorySlotWidget.cpp">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\OneLastPush\Inventory\InventorySlotWidget.h">
+      <Filter>Source\OneLastPush\Inventory</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\OneLastPush\Inventory\InventoryUIWidget.cpp">
       <Filter>Source\OneLastPush\Inventory</Filter>
     </ClCompile>

@@ -9,6 +9,8 @@
 class UInventoryComponent;
 class UContainerComponent;
 class UInventoryItem;
+class UInventorySlotWidget;
+class UUniformGridPanel;
 
 /**
  * Minimal inventory UI widget for displaying grid and handling drag/drop
@@ -62,6 +64,21 @@ protected:
 	UFUNCTION()
 	void OnPlayerInventoryItemChanged(UInventoryItem* Item, bool bAdded);
 
+	/** Create all inventory slot widgets */
+	void CreateInventorySlots();
+
+	/** Update slot widgets with current inventory state */
+	void UpdateSlots();
+
+protected:
+	/** Slot widget class to spawn */
+	UPROPERTY(EditAnywhere, Category = "Inventory|UI")
+	TSubclassOf<UInventorySlotWidget> SlotWidgetClass;
+
+	/** Grid panel widget reference (bind this in your UMG widget) */
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UUniformGridPanel* InventoryGrid;
+
 private:
 	/** Player inventory reference */
 	UPROPERTY()
@@ -70,4 +87,11 @@ private:
 	/** Container being viewed */
 	UPROPERTY()
 	TObjectPtr<UContainerComponent> ContainerComponent;
+
+	/** Array of all slot widgets */
+	UPROPERTY()
+	TArray<TObjectPtr<UInventorySlotWidget>> SlotWidgets;
+
+	/** Has the grid been initialized */
+	bool bGridInitialized = false;
 };

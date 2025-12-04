@@ -4,6 +4,8 @@
 #include "../Components/InventoryComponent.h"
 #include "../Components/ContainerComponent.h"
 #include "InventoryItem.h"
+#include "InventorySlotWidget.h"
+#include "../Inventory/InventoryGrid.h"
 #include "Components/UniformGridPanel.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
@@ -27,6 +29,13 @@ void UInventoryUIWidget::InitializeInventory(UInventoryComponent* InPlayerInvent
 		});
 	}
 
+	// Create the grid slots if not already created
+	if (!bGridInitialized)
+	{
+		CreateInventorySlots();
+		bGridInitialized = true;
+	}
+
 	RefreshDisplay();
 }
 
@@ -40,19 +49,51 @@ void UInventoryUIWidget::CloseInventory()
 	SetInventoryVisible(false);
 }
 
-void UInventoryUIWidget::RefreshDisplay()
+void UInventoryUIWidget::CreateInventorySlots()
 {
-	// Get the grid panel widget
-	UUniformGridPanel* GridPanel = Cast<UUniformGridPanel>(GetWidgetFromName(FName(TEXT("InventoryGrid"))));
-	if (!GridPanel)
+	if (!InventoryGrid || !PlayerInventory)
 	{
 		return;
 	}
 
-	// Clear existing items from grid
-	GridPanel->ClearChildren();
+	// Clear existing slots
+	InventoryGrid->ClearChildren();
+	SlotWidgets.Empty();
 
-	if (!PlayerInventory)
+	// Get grid dimensions from the inventory component
+	const int32 GridWidth = PlayerInventory->GridWidth;
+	const int32 GridHeight = PlayerInventory->GridHeight;
+
+	// Create a slot widget for each grid cell
+	for (int32 Y = 0; Y < GridHeight; ++Y)
+	{
+		for (int32 X = 0; X < GridWidth; ++X)
+		{
+			// Create slot widget
+			UInventorySlotWidget* SlotWidget = CreateWidget<UInventorySlotWidget>(this, SlotWidgetClass);
+			if (SlotWidget)
+			{
+				// Initialize the slot with its grid position
+				SlotWidget->InitializeSlot(X, Y);
+
+				// Add to the grid panel
+				InventoryGrid->AddChildToUniformGrid(SlotWidget, Y, X);
+
+				// Store reference
+				SlotWidgets.Add(SlotWidget);
+			}
+		}
+	}
+}
+
+void UInventoryUIWidget::RefreshDisplay()
+{
+	UpdateSlots();
+}
+
+void UInventoryUIWidget::UpdateSlots()
+{
+	if (!PlayerInventory || SlotWidgets.Num() == 0)
 	{
 		return;
 	}
@@ -61,7 +102,16 @@ void UInventoryUIWidget::RefreshDisplay()
 	TArray<UInventoryItem*> Items;
 	PlayerInventory->GetAllItems(Items);
 
-	// Add each item to the grid
+	// First, clear all slots
+	for (UInventorySlotWidget* SlotWidget : SlotWidgets)
+	{
+		if (SlotWidget)
+		{
+			SlotWidget->ClearSlot();
+		}
+	}
+
+	// Then, populate slots with items
 	for (UInventoryItem* Item : Items)
 	{
 		if (!Item)
@@ -69,23 +119,15 @@ void UInventoryUIWidget::RefreshDisplay()
 			continue;
 		}
 
-		// Create a simple image widget for the item
-		UImage* ItemImage = NewObject<UImage>(GridPanel);
-		if (Item->Icon)
+		// Find the slot at this item's grid position
+		for (UInventorySlotWidget* SlotWidget : SlotWidgets)
 		{
-			ItemImage->SetBrushFromTexture(Item->Icon);
+			if (SlotWidget && SlotWidget->GetGridX() == Item->GridX && SlotWidget->GetGridY() == Item->GridY)
+			{
+				SlotWidget->SetItem(Item);
+				break;
+			}
 		}
-		else
-		{
-			// Use a default white color if no icon
-			ItemImage->SetColorAndOpacity(FLinearColor::White);
-		}
-
-		// Add to grid at item's grid position
-		GridPanel->AddChildToUniformGrid(ItemImage, Item->GridY, Item->GridX);
-
-		// Optional: Set size to match item dimensions
-		// ItemImage->SetDesiredSizeOverride(FVector2D(Item->GridWidth * 50, Item->GridHeight * 50));
 	}
 }
 
