@@ -12,6 +12,7 @@ static_assert(!UE_WITH_CONSTINIT_UOBJECT, "This generated code can only be compi
 void EmptyLinkFunctionForGeneratedCodeOneLastPushCharacter() {}
 
 // ********** Begin Cross Module References ********************************************************
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -20,6 +21,7 @@ ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 ONELASTPUSH_API UClass* Z_Construct_UClass_AOneLastPushCharacter();
 ONELASTPUSH_API UClass* Z_Construct_UClass_AOneLastPushCharacter_NoRegister();
 ONELASTPUSH_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
+ONELASTPUSH_API UClass* Z_Construct_UClass_UInventoryUIWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_OneLastPush();
 // ********** End Cross Module References **********************************************************
 
@@ -443,6 +445,26 @@ struct Z_Construct_UClass_AOneLastPushCharacter_Statics
 		{ "ToolTip", "Interact input action" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InventoryWidgetClass_MetaData[] = {
+		{ "Category", "UI" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Inventory widget class */" },
+#endif
+		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Inventory widget class" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InventoryWidget_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Pointer to the inventory widget */" },
+#endif
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "OneLastPushCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Pointer to the inventory widget" },
+#endif
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MouseAimTraceChannel_MetaData[] = {
 		{ "Category", "Input" },
 #if !UE_BUILD_SHIPPING
@@ -492,6 +514,8 @@ struct Z_Construct_UClass_AOneLastPushCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ShootAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_OpenInventoryAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InteractAction;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_InventoryWidgetClass;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_InventoryWidget;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_MouseAimTraceChannel;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AimRotationInterpSpeed;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AutoFireDelay;
@@ -530,6 +554,8 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCh
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_ShootAction = { "ShootAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, ShootAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ShootAction_MetaData), NewProp_ShootAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_OpenInventoryAction = { "OpenInventoryAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, OpenInventoryAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OpenInventoryAction_MetaData), NewProp_OpenInventoryAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_InteractAction = { "InteractAction", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, InteractAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractAction_MetaData), NewProp_InteractAction_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_InventoryWidgetClass = { "InventoryWidgetClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, InventoryWidgetClass), Z_Construct_UClass_UClass_NoRegister, Z_Construct_UClass_UInventoryUIWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryWidgetClass_MetaData), NewProp_InventoryWidgetClass_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_InventoryWidget = { "InventoryWidget", nullptr, (EPropertyFlags)0x0124080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, InventoryWidget), Z_Construct_UClass_UInventoryUIWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryWidget_MetaData), NewProp_InventoryWidget_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_MouseAimTraceChannel = { "MouseAimTraceChannel", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, MouseAimTraceChannel), Z_Construct_UEnum_Engine_ETraceTypeQuery, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MouseAimTraceChannel_MetaData), NewProp_MouseAimTraceChannel_MetaData) }; // 93441085
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AimRotationInterpSpeed = { "AimRotationInterpSpeed", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, AimRotationInterpSpeed), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AimRotationInterpSpeed_MetaData), NewProp_AimRotationInterpSpeed_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AutoFireDelay = { "AutoFireDelay", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AOneLastPushCharacter, AutoFireDelay), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AutoFireDelay_MetaData), NewProp_AutoFireDelay_MetaData) };
@@ -544,6 +570,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AOneLastP
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_ShootAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_OpenInventoryAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_InteractAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_InventoryWidgetClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_InventoryWidget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_MouseAimTraceChannel,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AimRotationInterpSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AOneLastPushCharacter_Statics::NewProp_AutoFireDelay,
@@ -591,10 +619,10 @@ AOneLastPushCharacter::~AOneLastPushCharacter() {}
 struct Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AOneLastPushCharacter, AOneLastPushCharacter::StaticClass, TEXT("AOneLastPushCharacter"), &Z_Registration_Info_UClass_AOneLastPushCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AOneLastPushCharacter), 3957804930U) },
+		{ Z_Construct_UClass_AOneLastPushCharacter, AOneLastPushCharacter::StaticClass, TEXT("AOneLastPushCharacter"), &Z_Registration_Info_UClass_AOneLastPushCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AOneLastPushCharacter), 1042052172U) },
 	};
 }; // Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_1483549957{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_3563161555{
 	TEXT("/Script/OneLastPush"),
 	Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_Games_OneLastPush_Source_OneLastPush_OneLastPushCharacter_h__Script_OneLastPush_Statics::ClassInfo),
 	nullptr, 0,

@@ -8,6 +8,7 @@
 #include "InputAction.h"
 #include "Components/InventoryComponent.h"
 #include "Components/ContainerComponent.h"
+#include "Inventory/InventoryUIWidget.h"
 #include "Engine/CollisionProfile.h"
 #include "Engine/OverlapResult.h"
 #include "TwinStickGameMode.h"
@@ -55,6 +56,21 @@ AOneLastPushCharacter::AOneLastPushCharacter()
 void AOneLastPushCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// Create and setup the inventory widget
+	if (APlayerController* PC = Cast<APlayerController>(GetController()))
+	{
+		if (InventoryWidgetClass)
+		{
+			InventoryWidget = CreateWidget<UInventoryUIWidget>(PC, InventoryWidgetClass);
+			if (InventoryWidget)
+			{
+				InventoryWidget->AddToViewport(100);
+				InventoryWidget->SetInventoryVisible(false);
+				InventoryWidget->InitializeInventory(InventoryComponent, nullptr);
+			}
+		}
+	}
 }
 
 void AOneLastPushCharacter::EndPlay(EEndPlayReason::Type EndPlayReason)
@@ -179,8 +195,22 @@ void AOneLastPushCharacter::Shoot(const FInputActionValue& Value)
 
 void AOneLastPushCharacter::ToggleInventory(const FInputActionValue& Value)
 {
-	// Blueprint implementation can override this
-	// Default: just print that inventory was toggled
+	// Toggle inventory visibility
+	if (InventoryWidget)
+	{
+		// Get current visibility
+		ESlateVisibility CurrentVis = InventoryWidget->GetVisibility();
+		
+		// Toggle between visible and hidden
+		if (CurrentVis == ESlateVisibility::Visible)
+		{
+			InventoryWidget->SetInventoryVisible(false);
+		}
+		else
+		{
+			InventoryWidget->SetInventoryVisible(true);
+		}
+	}
 }
 
 void AOneLastPushCharacter::Interact(const FInputActionValue& Value)

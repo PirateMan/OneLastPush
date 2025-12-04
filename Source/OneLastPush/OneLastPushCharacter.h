@@ -10,6 +10,7 @@
 class USpringArmComponent;
 class UCameraComponent;
 class UInventoryComponent;
+class UInventoryUIWidget;
 struct FInputActionValue;
 class APlayerController;
 class UInputAction;
@@ -65,6 +66,14 @@ protected:
 	/** Interact input action */
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* InteractAction;
+
+	/** Inventory widget class */
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<UInventoryUIWidget> InventoryWidgetClass;
+
+	/** Pointer to the inventory widget */
+	UPROPERTY()
+	TObjectPtr<UInventoryUIWidget> InventoryWidget;
 
 	/** Trace channel to use for mouse aim */
 	UPROPERTY(EditAnywhere, Category = "Input")
