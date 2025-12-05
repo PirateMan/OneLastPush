@@ -77,25 +77,28 @@ Your `WBP_Inventory` needs a second grid for containers:
 
 **Add to Designer:**
 1. **Horizontal Box** (to hold both grids side-by-side)
-   - Inside add **Vertical Box** (Player Inventory)
-     - Text: "Player Inventory"
-     - **Uniform Grid Panel**: `InventoryGrid` ? (already exists)
+   - Inside add **Vertical Box** named `InventoryVerticalBox` (Player Inventory)
+     - Text Block: "Player Inventory"
+     - **Uniform Grid Panel**: `InventoryGrid` ? (already exists, make it a variable)
    
-   - Inside add **Vertical Box** (Container Inventory)
-     - Text: "Container"
+   - Inside add **Vertical Box** named `ContainerVerticalBox` (Container Inventory)
+     - **IMPORTANT**: Make this a Variable ?
+     - Text Block named `ContainerTitle`: "Container"
      - **Uniform Grid Panel**: `ContainerGrid` ? (make this a variable)
 
 **Layout Example:**
 ```
 [Horizontal Box]
-  ?? [Vertical Box - Player]
+  ?? [Vertical Box - InventoryVerticalBox]
   ?  ?? Text: "Player Inventory"
-  ?  ?? InventoryGrid (10x5)
+  ?  ?? InventoryGrid (10x5) ? Variable
   ?
-  ?? [Vertical Box - Container]
-     ?? Text: "Container"  
-     ?? ContainerGrid (8x4)
+  ?? [Vertical Box - ContainerVerticalBox] ? Variable
+     ?? Text: "Container" (ContainerTitle)
+     ?? ContainerGrid (8x4) ? Variable
 ```
+
+**Note:** The `ContainerVerticalBox` will automatically hide when no container is open and show when interacting with a container.
 
 ---
 

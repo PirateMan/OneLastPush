@@ -7,6 +7,7 @@
 #include "InventorySlotWidget.h"
 #include "../Inventory/InventoryGrid.h"
 #include "Components/UniformGridPanel.h"
+#include "Components/VerticalBox.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
 #include "Components/Button.h"
@@ -53,11 +54,23 @@ void UInventoryUIWidget::InitializeInventory(UInventoryComponent* InPlayerInvent
 	if (ContainerComponent)
 	{
 		CreateContainerSlots();
+		
+		// Show container section
+		if (ContainerVerticalBox)
+		{
+			ContainerVerticalBox->SetVisibility(ESlateVisibility::Visible);
+		}
 	}
 	else
 	{
 		// Clear container slots if no container
 		ClearContainerSlots();
+		
+		// Hide container section
+		if (ContainerVerticalBox)
+		{
+			ContainerVerticalBox->SetVisibility(ESlateVisibility::Collapsed);
+		}
 	}
 
 	RefreshDisplay();

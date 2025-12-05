@@ -267,9 +267,10 @@ void AOneLastPushCharacter::Interact(const FInputActionValue& Value)
 				// Close container
 				ClosestContainer->CloseContainer();
 				
-				// Update inventory widget to hide container
+				// Close entire inventory UI when closing container
 				if (InventoryWidget)
 				{
+					InventoryWidget->SetInventoryVisible(false);
 					InventoryWidget->InitializeInventory(InventoryComponent, nullptr);
 				}
 			}

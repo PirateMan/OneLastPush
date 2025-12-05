@@ -92,6 +92,10 @@ protected:
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional))
 	UUniformGridPanel* ContainerGrid;
 
+	/** Container vertical box containing ContainerGrid and ContainerTitle */
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional))
+	class UVerticalBox* ContainerVerticalBox;
+
 private:
 	/** Player inventory reference */
 	UPROPERTY()
