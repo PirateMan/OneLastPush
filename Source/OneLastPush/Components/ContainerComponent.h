@@ -76,6 +76,22 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Container")
 	void GetAllItems(TArray<UInventoryItem*>& OutItems) const;
 
+	/**
+	 * Add item from data table to container
+	 * @param DataTable the data table to read from
+	 * @param RowName the row name to look up
+	 * @param Quantity initial quantity
+	 * @return true if successful
+	 */
+	UFUNCTION(BlueprintCallable, Category = "Container")
+	bool AddItemFromDataTable(UDataTable* DataTable, FName RowName, int32 Quantity = 1);
+
+	/**
+	 * Get the currently interacting character
+	 */
+	UFUNCTION(BlueprintPure, Category = "Container")
+	AOneLastPushCharacter* GetInteractingCharacter() const { return InteractingCharacter.Get(); }
+
 private:
 	/** Container inventory */
 	UPROPERTY()

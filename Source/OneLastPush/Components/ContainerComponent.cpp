@@ -106,3 +106,24 @@ void UContainerComponent::GetAllItems(TArray<UInventoryItem*>& OutItems) const
 	}
 }
 
+bool UContainerComponent::AddItemFromDataTable(UDataTable* DataTable, FName RowName, int32 Quantity)
+{
+	// Ensure inventory exists
+	if (!Inventory)
+	{
+		Inventory = NewObject<UInventoryComponent>(this);
+		if (Inventory)
+		{
+			Inventory->GridWidth = GridWidth;
+			Inventory->GridHeight = GridHeight;
+		}
+	}
+
+	if (!Inventory)
+	{
+		return false;
+	}
+
+	return Inventory->AddItemFromDataTable(DataTable, RowName, Quantity);
+}
+

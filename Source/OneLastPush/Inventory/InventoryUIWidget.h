@@ -70,14 +70,27 @@ protected:
 	/** Update slot widgets with current inventory state */
 	void UpdateSlots();
 
+	/** Create container inventory slots */
+	void CreateContainerSlots();
+
+	/** Update container slot widgets */
+	void UpdateContainerSlots();
+
+	/** Clear container slot widgets */
+	void ClearContainerSlots();
+
 protected:
 	/** Slot widget class to spawn */
 	UPROPERTY(EditAnywhere, Category = "Inventory|UI")
 	TSubclassOf<UInventorySlotWidget> SlotWidgetClass;
 
-	/** Grid panel widget reference (bind this in your UMG widget) */
+	/** Grid panel widget reference for player inventory (bind this in your UMG widget) */
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	UUniformGridPanel* InventoryGrid;
+
+	/** Grid panel widget reference for container inventory (bind this in your UMG widget) */
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional))
+	UUniformGridPanel* ContainerGrid;
 
 private:
 	/** Player inventory reference */
@@ -88,9 +101,13 @@ private:
 	UPROPERTY()
 	TObjectPtr<UContainerComponent> ContainerComponent;
 
-	/** Array of all slot widgets */
+	/** Array of all player inventory slot widgets */
 	UPROPERTY()
 	TArray<TObjectPtr<UInventorySlotWidget>> SlotWidgets;
+
+	/** Array of all container inventory slot widgets */
+	UPROPERTY()
+	TArray<TObjectPtr<UInventorySlotWidget>> ContainerSlotWidgets;
 
 	/** Has the grid been initialized */
 	bool bGridInitialized = false;

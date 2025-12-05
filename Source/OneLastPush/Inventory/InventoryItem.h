@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "InventoryItemData.h"
 #include "InventoryItem.generated.h"
 
 class UInventoryComponent;
+class UDataTable;
 
 /**
  * Base class for inventory items
@@ -48,6 +50,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory|Item")
 	class UTexture2D* Icon;
 
+	/** Item ID for data table lookup */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory|Item")
+	FName ItemID;
+
+	/** Item type */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory|Item")
+	EItemType ItemType;
+
+	/** Item rarity */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory|Item")
+	EItemRarity Rarity;
+
 	/** Current grid X position */
 	UPROPERTY(BlueprintReadWrite, Category = "Inventory|Grid")
 	int32 GridX;
@@ -59,6 +73,24 @@ public:
 	/** Owning inventory component */
 	UPROPERTY(BlueprintReadOnly, Category = "Inventory|Grid")
 	TWeakObjectPtr<UInventoryComponent> OwningInventory;
+
+	/**
+	 * Initialize item from data table row
+	 * @param DataTable the data table to read from
+	 * @param RowName the row name to look up
+	 * @param InQuantity initial quantity
+	 * @return true if successful
+	 */
+	UFUNCTION(BlueprintCallable, Category = "Inventory|Item")
+	bool InitializeFromDataTable(UDataTable* DataTable, FName RowName, int32 InQuantity = 1);
+
+	/**
+	 * Initialize item from data struct
+	 * @param ItemData the item data struct
+	 * @param InQuantity initial quantity
+	 */
+	UFUNCTION(BlueprintCallable, Category = "Inventory|Item")
+	void InitializeFromData(const FInventoryItemData& ItemData, int32 InQuantity = 1);
 
 	/**
 	 * Check if item can stack
@@ -89,4 +121,15 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Inventory|Item")
 	int32 RemoveQuantity(int32 Amount);
+
+	/**
+	 * Static helper to create an item from data table
+	 * @param Outer the outer object for the new item
+	 * @param DataTable the data table to read from
+	 * @param RowName the row name to look up
+	 * @param InQuantity initial quantity
+	 * @return the created item or nullptr if failed
+	 */
+	UFUNCTION(BlueprintCallable, Category = "Inventory|Item", meta = (WorldContext = "Outer"))
+	static UInventoryItem* CreateItemFromDataTable(UObject* Outer, UDataTable* DataTable, FName RowName, int32 InQuantity = 1);
 };

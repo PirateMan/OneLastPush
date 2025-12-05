@@ -29,11 +29,35 @@ void UInventoryUIWidget::InitializeInventory(UInventoryComponent* InPlayerInvent
 		});
 	}
 
+	// Bind to container inventory delegates if we have a container
+	if (ContainerComponent && ContainerComponent->GetInventory())
+	{
+		TWeakObjectPtr<UInventoryUIWidget> WeakThis(this);
+		ContainerComponent->GetInventory()->OnItemChanged.AddLambda([WeakThis](UInventoryItem* Item, bool bAdded)
+		{
+			if (WeakThis.IsValid())
+			{
+				WeakThis->UpdateContainerSlots();
+			}
+		});
+	}
+
 	// Create the grid slots if not already created
 	if (!bGridInitialized)
 	{
 		CreateInventorySlots();
 		bGridInitialized = true;
+	}
+
+	// Create container slots if we have a container
+	if (ContainerComponent)
+	{
+		CreateContainerSlots();
+	}
+	else
+	{
+		// Clear container slots if no container
+		ClearContainerSlots();
 	}
 
 	RefreshDisplay();
@@ -157,4 +181,93 @@ void UInventoryUIWidget::NativeDestruct()
 void UInventoryUIWidget::OnPlayerInventoryItemChanged(UInventoryItem* Item, bool bAdded)
 {
 	RefreshDisplay();
+}
+
+void UInventoryUIWidget::CreateContainerSlots()
+{
+	if (!ContainerGrid || !ContainerComponent || !ContainerComponent->GetInventory())
+	{
+		return;
+	}
+
+	// Clear existing container slots
+	ContainerGrid->ClearChildren();
+	ContainerSlotWidgets.Empty();
+
+	UInventoryComponent* ContainerInventory = ContainerComponent->GetInventory();
+	const int32 GridWidth = ContainerInventory->GridWidth;
+	const int32 GridHeight = ContainerInventory->GridHeight;
+
+	// Create a slot widget for each grid cell
+	for (int32 Y = 0; Y < GridHeight; ++Y)
+	{
+		for (int32 X = 0; X < GridWidth; ++X)
+		{
+			// Create slot widget
+			UInventorySlotWidget* SlotWidget = CreateWidget<UInventorySlotWidget>(this, SlotWidgetClass);
+			if (SlotWidget)
+			{
+				// Initialize the slot with its grid position
+				SlotWidget->InitializeSlot(X, Y);
+
+				// Add to the grid panel
+				ContainerGrid->AddChildToUniformGrid(SlotWidget, Y, X);
+
+				// Store reference
+				ContainerSlotWidgets.Add(SlotWidget);
+			}
+		}
+	}
+
+	// Update with current container contents
+	UpdateContainerSlots();
+}
+
+void UInventoryUIWidget::UpdateContainerSlots()
+{
+	if (!ContainerComponent || !ContainerComponent->GetInventory() || ContainerSlotWidgets.Num() == 0)
+	{
+		return;
+	}
+
+	// Get all items from container inventory
+	TArray<UInventoryItem*> Items;
+	ContainerComponent->GetInventory()->GetAllItems(Items);
+
+	// First, clear all slots
+	for (UInventorySlotWidget* SlotWidget : ContainerSlotWidgets)
+	{
+		if (SlotWidget)
+		{
+			SlotWidget->ClearSlot();
+		}
+	}
+
+	// Then, populate slots with items
+	for (UInventoryItem* Item : Items)
+	{
+		if (!Item)
+		{
+			continue;
+		}
+
+		// Find the slot at this item's grid position
+		for (UInventorySlotWidget* SlotWidget : ContainerSlotWidgets)
+		{
+			if (SlotWidget && SlotWidget->GetGridX() == Item->GridX && SlotWidget->GetGridY() == Item->GridY)
+			{
+				SlotWidget->SetItem(Item);
+				break;
+			}
+		}
+	}
+}
+
+void UInventoryUIWidget::ClearContainerSlots()
+{
+	if (ContainerGrid)
+	{
+		ContainerGrid->ClearChildren();
+	}
+	ContainerSlotWidgets.Empty();
 }

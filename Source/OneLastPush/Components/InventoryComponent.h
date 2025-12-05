@@ -97,6 +97,16 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Inventory")
 	UInventoryGrid* GetGrid() const { return Grid; }
 
+	/**
+	 * Create and add an item from data table
+	 * @param DataTable the data table to read from
+	 * @param RowName the row name to look up
+	 * @param Quantity initial quantity
+	 * @return true if successful
+	 */
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool AddItemFromDataTable(UDataTable* DataTable, FName RowName, int32 Quantity = 1);
+
 private:
 	/** Inventory grid */
 	UPROPERTY()

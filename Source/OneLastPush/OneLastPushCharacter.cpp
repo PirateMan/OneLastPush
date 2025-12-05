@@ -264,11 +264,26 @@ void AOneLastPushCharacter::Interact(const FInputActionValue& Value)
 		{
 			if (ClosestContainer->IsOpen())
 			{
+				// Close container
 				ClosestContainer->CloseContainer();
+				
+				// Update inventory widget to hide container
+				if (InventoryWidget)
+				{
+					InventoryWidget->InitializeInventory(InventoryComponent, nullptr);
+				}
 			}
 			else
 			{
+				// Open container
 				ClosestContainer->OpenContainer(this);
+				
+				// Update inventory widget to show container
+				if (InventoryWidget)
+				{
+					InventoryWidget->SetInventoryVisible(true);
+					InventoryWidget->InitializeInventory(InventoryComponent, ClosestContainer);
+				}
 			}
 		}
 	}

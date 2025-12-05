@@ -128,3 +128,32 @@ void UInventoryComponent::GetAllItems(TArray<UInventoryItem*>& OutItems) const
 	}
 }
 
+bool UInventoryComponent::AddItemFromDataTable(UDataTable* DataTable, FName RowName, int32 Quantity)
+{
+	if (!DataTable)
+	{
+		UE_LOG(LogTemp, Error, TEXT("AddItemFromDataTable: DataTable is null"));
+		return false;
+	}
+
+	// Create item from data table
+	UInventoryItem* NewItem = UInventoryItem::CreateItemFromDataTable(this, DataTable, RowName, Quantity);
+	if (!NewItem)
+	{
+		UE_LOG(LogTemp, Error, TEXT("AddItemFromDataTable: Failed to create item from row '%s'"), *RowName.ToString());
+		return false;
+	}
+
+	// Try to add to inventory
+	if (AddItem(NewItem))
+	{
+		UE_LOG(LogTemp, Log, TEXT("AddItemFromDataTable: Successfully added '%s' x%d"), *NewItem->ItemName.ToString(), NewItem->Quantity);
+		return true;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AddItemFromDataTable: Failed to add item '%s' to inventory (no space?)"), *NewItem->ItemName.ToString());
+		return false;
+	}
+}
+
